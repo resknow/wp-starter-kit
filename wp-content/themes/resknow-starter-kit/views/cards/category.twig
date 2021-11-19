@@ -1,0 +1,21 @@
+{#---
+    Sometimes the template will have to provide an image, in
+    other cases the category image is pre-populated so we need
+    to normalise the variable name.
+---#}
+{% if not image %}
+	{% set image = cat.image %}
+{% endif %}
+
+{% set url = fn('get_term_link', cat.term_id) %}
+
+<a href="{{ url }}"
+	class="media | bg-cover"
+	data-ratio="65:100"
+	style="--image: url('{{ image.sizes.product_image }}')">
+	<div class="media__inner | bg-black bg-opacity-3 flex items-center justify-center align-center">
+		<p class="c-white text-shadow-lg weight-bold {{ isLarge ? 'size-2xl' : '' }}">
+			{{ cat.name }}
+		</p>
+	</div>
+</a>

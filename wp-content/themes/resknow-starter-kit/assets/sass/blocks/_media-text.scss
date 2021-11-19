@@ -1,0 +1,8 @@
+.wp-block-media-text {
+	gap: var(--space-6);
+}
+
+.wp-block-media-text__content > * + * {
+	--flow-space: var(--space-4);
+	margin-top: var(--flow-space);
+}

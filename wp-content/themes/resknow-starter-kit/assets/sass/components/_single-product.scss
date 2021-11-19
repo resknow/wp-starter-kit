@@ -1,0 +1,17 @@
+/**
+ * WooCommerce uses the .product class on a few components.
+ * This component is just for single product pages
+ */
+.block-area > .product {
+	display: grid;
+	gap: var(--gap, var(--space-8));
+	grid-column: 3 / span 3;
+
+	.summary > * + * {
+		margin-block-start: var(--flow-space, var(--space-1));
+	}
+
+	@media (min-width: 768px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}

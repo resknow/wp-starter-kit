@@ -1,0 +1,23 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+	<main id="content" class="content-container">
+		<div class="block-area | row-gap-16 mt-20">
+			<h1 class="accent align-center">
+				{{ results.found_posts }} search results for {{ query }}
+			</h1>
+
+			<div class="alignwide | grid gap-4 sm:cols-2 md:cols-3">
+				{% for item in results %}
+					{% include 'cards/product.twig' with {
+						id: item.id
+					} %}
+				{% endfor %}
+			</div>
+
+			{% include 'partials/pagination.twig' with {
+				posts: results
+			} %}
+		</div>
+	</main>
+{% endblock %}

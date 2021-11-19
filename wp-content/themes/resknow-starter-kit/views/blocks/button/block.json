@@ -1,0 +1,46 @@
+{
+	"name": "button",
+	"title": "Button",
+	"description": "A button",
+	"replaces": ["core/button", "core/buttons"],
+	"category": "layout",
+	"icon": "button",
+	"keywords": ["button", "buttons", "link"],
+	"supports": {
+		"align": false,
+		"color": {
+			"background": true,
+			"text": false
+		}
+	},
+	"fields": [
+		{
+			"label": "Text",
+			"name": "text",
+			"type": "text",
+			"required": true
+		},
+		{
+			"label": "Link",
+			"name": "link",
+			"type": "link",
+			"required": true
+		},
+		{
+			"label": "Icon",
+			"name": "icon",
+			"type": "text"
+		},
+		{
+			"label": "Size",
+			"name": "size",
+			"type": "select",
+			"choices": {
+				"sm": "Small",
+				"md": "Medium",
+				"lg": "Large"
+			},
+			"default_value": "md"
+		}
+	]
+}

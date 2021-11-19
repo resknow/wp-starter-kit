@@ -1,0 +1,9 @@
+.designed-by {
+	align-items: center;
+	display: flex;
+
+	> a,
+	> img {
+		display: block;
+	}
+}

@@ -1,0 +1,89 @@
+{
+	"name": "carousel",
+	"title": "Carousel",
+	"description": "A carousel of rotating content",
+	"category": "layout",
+	"icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\"><path d=\"M21.92,11.62a1,1,0,0,0-.21-.33l-2.5-2.5a1,1,0,0,0-1.42,1.42l.8.79H14a1,1,0,0,0,0,2h4.59l-.8.79a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l2.5-2.5a1,1,0,0,0,.21-.33A1,1,0,0,0,21.92,11.62ZM10,11H5.41l.8-.79A1,1,0,0,0,4.79,8.79l-2.5,2.5a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l2.5,2.5a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L5.41,13H10a1,1,0,0,0,0-2Z\"/></svg>",
+	"keywords": ["carousel", "slider"],
+	"align": "full",
+	"supports": { "align": ["full"], "jsx": true },
+	"scripts": [
+		{
+			"name": "scooch",
+			"src": "~/assets/scooch.js"
+		}
+	],
+	"stylesheets": [
+		{
+			"name": "scooch",
+			"src": "~/assets/scooch.css"
+		}
+	],
+	"fields": [
+		{
+			"label": "Slides",
+			"name": "slides",
+			"type": "gallery",
+			"min": 1,
+			"max": 4,
+			"required": true
+		},
+		{
+			"label": "Preview Slide",
+			"name": "preview_slide",
+			"type": "number",
+			"instructions": "If you want to preview a different slide, enter the slide number here."
+		},
+		{
+			"label": "Autoplay",
+			"name": "autoplay",
+			"type": "true_false",
+			"ui": true,
+			"default_value": 1
+		},
+		{
+			"label": "Autoplay Interval",
+			"name": "autoplay_interval",
+			"type": "number",
+			"description": "Interval in milliseconds.",
+			"default_value": "7500",
+			"conditional_logic": [
+				[
+					{
+						"field": "field_carousel-autoplay",
+						"operator": "==",
+						"value": 1
+					}
+				]
+			]
+		},
+		{
+			"label": "Keyboard Controls",
+			"name": "keyboard",
+			"type": "true_false",
+			"ui": true,
+			"default_value": 0
+		},
+		{
+			"label": "Allow Fullscreen",
+			"name": "fullscreen",
+			"type": "true_false",
+			"ui": true,
+			"default_value": 0
+		},
+		{
+			"label": "Scroll to Change Slide",
+			"name": "scroll",
+			"type": "true_false",
+			"ui": true,
+			"default_value": 0
+		},
+		{
+			"label": "Swipe to Change Slide",
+			"name": "swipe",
+			"type": "true_false",
+			"ui": true,
+			"default_value": 0
+		}
+	]
+}

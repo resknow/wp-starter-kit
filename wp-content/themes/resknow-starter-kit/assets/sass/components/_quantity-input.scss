@@ -1,0 +1,41 @@
+.c-quantity {
+	--c-quantity-color: var(--color-gray-10);
+	--c-quantity-color-hover: var(--color-secondary);
+}
+
+.c-quantity__controls {
+	display: grid;
+	grid-template-columns: 40px 5ch 40px;
+}
+
+.c-quantity__label {
+	display: block;
+	text-transform: uppercase;
+}
+
+.c-quantity button {
+	border: 1px solid var(--c-quantity-color);
+	border-radius: 0;
+	background-color: var(--c-quantity-color);
+	cursor: pointer;
+	display: flex;
+	font-family: inherit;
+	line-height: 1;
+	padding: var(--space-3);
+	min-width: 3ch;
+}
+
+.c-quantity button:hover {
+	background-color: var(--c-quantity-color-hover);
+	border-color: var(--c-quantity-color-hover);
+	color: black;
+}
+
+.c-quantity input {
+	appearance: none;
+	border-radius: 0;
+	padding-left: 3px;
+	padding-right: 3px;
+	text-align: center;
+	width: 3ch;
+}

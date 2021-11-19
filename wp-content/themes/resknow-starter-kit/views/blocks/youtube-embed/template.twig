@@ -1,0 +1,11 @@
+{% set video_id = fields.url | replace({
+    'https://youtu.be/': '',
+    'https://www.youtube.com/watch?v=': '',
+    'https://m.youtube.com/watch?v=': ''
+}) %}
+
+<div class="youtube-embed">
+    <div class="media">
+        <iframe class="media__inner" width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>

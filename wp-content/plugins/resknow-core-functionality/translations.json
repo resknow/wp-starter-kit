@@ -1,0 +1,9 @@
+{
+	"woocommerce": {
+		"Cart": "Bag",
+		"Cart totals": "Order Summary",
+		"Update cart": "Update",
+		"Add to cart": "Add to bag",
+		"View cart": "My bag"
+	}
+}

@@ -1,0 +1,25 @@
+.carousel {
+	--carousel-height: min(80vw, 36rem);
+
+	&__slide {
+		background-image: var(--slide-image);
+		background-size: cover;
+		background-position: center;
+		display: grid;
+		height: var(--carousel-height);
+	}
+
+	&__overlay {
+		background-color: rgba(black, 0.3);
+		color: var(--color-white);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: var(--space-8);
+	}
+
+	&__overlay-inner {
+		max-width: 72ch;
+		text-align: center;
+	}
+}

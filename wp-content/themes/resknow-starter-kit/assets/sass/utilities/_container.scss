@@ -1,0 +1,5 @@
+/** Container Utility **/
+.container {
+	margin-inline: auto;
+	max-width: var(--max-width, 64rem);
+}

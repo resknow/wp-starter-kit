@@ -1,0 +1,15 @@
+{% macro range(_) %}
+    <div class="c-range" x-data="{ value: {{ _.value }} }">
+        <input
+            class="c-range__input"
+            type="range"
+            min="{{ _.min | default(1) }}"
+            max="{{ _.max | default(10) }}"
+            step="{{ _.step | default(1) }}"
+            x-model="value"
+        />
+        {% if _.showValue | default(true) %}
+        <span class="c-range__value" x-text="value"></span>
+        {% endif %}
+    </div>
+{% endmacro %}

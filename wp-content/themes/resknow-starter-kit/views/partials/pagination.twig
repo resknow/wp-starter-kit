@@ -1,0 +1,19 @@
+<nav class="pagination | py-3 flex items-center justify-center gap-8">
+	{% if posts.pagination.prev %}
+		<a href="{{ posts.pagination.prev.link }}" class="pagination__prev {{ posts.pagination.prev.link|length ? '' : 'invisible' }}">Prev</a>
+	{% endif %}
+	<ul class="pagination__pages | flex items-center justify-center gap-3">
+		{% for page in posts.pagination.pages %}
+			<li>
+				{% if page.link %}
+					<a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+				{% else %}
+					<span class="{{ page.class }}">{{ page.title }}</span>
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+	{% if posts.pagination.next %}
+		<a href="{{ posts.pagination.next.link }}" class="pagination__next {{ posts.pagination.next.link|length ? '' : 'invisible' }}">Next</a>
+	{% endif %}
+</nav>

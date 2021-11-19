@@ -1,0 +1,24 @@
+.scooch {
+	--scooch-slide-transition-time: 1s;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	list-style: none;
+}
+
+/* We need pointer events set to none for swipe, but we don't want to break clickable elements */
+/* .scooch *:not(a, button, input[type='button'], input[type='submit']) {
+	pointer-events: none;
+} */
+
+.scooch .scooch__slide {
+	grid-column: 1;
+	grid-row: 1;
+	opacity: 0;
+	transition: opacity var(--scooch-slide-transition-time, 1s);
+}
+
+.scooch .scooch__slide[aria-current] {
+	opacity: 1;
+}

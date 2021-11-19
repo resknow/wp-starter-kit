@@ -1,0 +1,41 @@
+<!doctype html>
+<html {{ fn('language_attributes') }}>
+<head>
+	<meta charset="{{ fn('bloginfo', 'charset') }}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	{{ fn('wp_head') }}
+
+	<meta name="twitter:dnt" content="on">
+
+	<style>
+		[x-cloak] {
+			display: none !important;
+		}
+	</style>
+</head>
+
+<body {{ fn('body_class') }}>
+
+    {{ fn('wp_body_open') }}
+
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    {% include "partials/header.twig" ignore missing %}
+
+    {% block content %}{% endblock %}
+
+    {% include "partials/footer.twig" ignore missing %}
+
+    {% include "partials/edit-page-button.twig" %}
+    {% include "partials/global-state.twig" %}
+
+    {{ fn('wp_footer') }}
+
+    <cookie-consent-banner hidden>
+        <p>{{ globals.cookie_consent_message | default('We use cookies to provide the best experience.') }}</p>
+    </cookie-consent-banner>
+    <script type="module" src="https://unpkg.com/simple-cookie-consent-banner/cookie-consent-banner.js"></script>
+
+</body>
+</html>

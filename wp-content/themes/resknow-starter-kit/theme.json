@@ -1,0 +1,111 @@
+{
+	"version": 1,
+	"settings": {
+		"border": {
+			"customRadius": false
+		},
+		"color": {
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"duotone": [],
+			"gradients": [],
+			"link": false,
+			"palette": [
+				{
+					"name": "Gray 90",
+					"slug": "gray-90",
+					"color": "#373946"
+				},
+				{
+					"name": "Gray 70",
+					"slug": "gray-70",
+					"color": "#565869"
+				},
+				{
+					"name": "Gray 50",
+					"slug": "gray-50",
+					"color": "#77798a"
+				},
+				{
+					"name": "Gray 30",
+					"slug": "gray-30",
+					"color": "#b3b4bd"
+				},
+				{
+					"name": "Gray 10",
+					"slug": "gray-10",
+					"color": "#eeeef0"
+				},
+				{
+					"name": "White",
+					"slug": "white",
+					"color": "#ffffff"
+				}
+			]
+		},
+		"custom": {},
+		"layout": {
+			"contentSize": "720px",
+			"wideSize": "1024px"
+		},
+		"spacing": {
+			"customMargin": false,
+			"customPadding": false,
+			"units": ["px", "em", "rem", "vh", "vw"]
+		},
+		"typography": {
+			"customFontSize": false,
+			"customLineHeight": false,
+			"dropCap": false,
+			"fontSizes": [
+				{
+					"slug": "xs",
+					"name": "Extra Small",
+					"size": "0.75rem"
+				},
+				{
+					"slug": "sm",
+					"name": "Small",
+					"size": "0.83rem"
+				},
+				{
+					"slug": "normal",
+					"name": "Normal",
+					"size": "1rem"
+				},
+				{
+					"slug": "lg",
+					"name": "Large",
+					"size": "1.2rem"
+				},
+				{
+					"slug": "xl",
+					"name": "Extra Large",
+					"size": "1.44rem"
+				},
+				{
+					"slug": "2xl",
+					"name": "XXL",
+					"size": "1.728rem"
+				},
+				{
+					"slug": "3xl",
+					"name": "XXXL",
+					"size": "2.074rem"
+				},
+				{
+					"slug": "4xl",
+					"name": "XXXXL",
+					"size": "2.488rem"
+				},
+				{
+					"slug": "5xl",
+					"name": "Huge",
+					"size": "2.986rem"
+				}
+			]
+		},
+		"blocks": {}
+	}
+}

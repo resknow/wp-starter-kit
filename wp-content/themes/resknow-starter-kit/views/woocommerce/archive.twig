@@ -1,0 +1,38 @@
+{% extends 'layouts/default.twig' %}
+
+{% block content %}
+	<div class="block-area row-gap-10">
+		<h1 class="accent py-20 align-center">
+			{{ category.name }}
+		</h1>
+
+		{% if isTopLevel %}
+			<section class="auto-grid | alignwide">
+				{% for cat in category.children %}
+					{% set imageId = fn('get_term_meta', cat.term_id, 'thumbnail_id', true) %}
+					{% set image = fn('format_image_array', imageId) %}
+
+					{% include 'cards/category.twig' with {
+						cat: cat,
+						image: image,
+						isLarge: true
+					} %}
+				{% endfor %}
+			</section>
+		{% endif %}
+
+		<ul class="grid gap-4 sm:cols-2 md:cols-3 | alignwide" role="list">
+			{% for product in products %}
+				<li>
+					{% include 'cards/product.twig' with {
+						id: product.product
+					} %}
+				</li>
+			{% endfor %}
+		</ul>
+
+		{% include 'partials/pagination.twig' with {
+			posts: products
+		} %}
+	</div>
+{% endblock %}

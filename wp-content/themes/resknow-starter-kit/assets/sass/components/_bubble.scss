@@ -1,0 +1,22 @@
+/**
+ * Bubble
+ *
+ * A little circle, like those notification bubbles you get in
+ * many apps. It's designed to be positioned over other elements,
+ * but the actual placement is up to you.
+ */
+.bubble {
+	align-items: center;
+	background-color: var(--bubble-background-color, var(--color-negative));
+	border-radius: 9999px;
+	box-shadow: var(--bubble-shadow, var(--shadow-lg));
+	color: var(--bubble-color, white);
+	display: flex;
+	font-size: var(--size-xs);
+	font-weight: var(--weight-bold);
+	height: var(--bubble-size, var(--size-lg));
+	justify-content: center;
+	line-height: 1;
+	text-align: center;
+	width: var(--bubble-size, var(--size-lg));
+}

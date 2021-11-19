@@ -1,0 +1,19 @@
+{% set product = fn('wc_get_product', id) %}
+{% set image = fn('get_featured_image', id) %}
+{% set url = fn('get_permalink', id) %}
+
+<a href="{{ url }}"
+	class="product-card | media bg-cover"
+	data-ratio="1:1"
+	style="--image: url('{{ image.sizes.product_image }}')">
+	<div class="media__inner | gradient from-white to-white from-opacity-0 to-opacity-7 px-8 py-8 flex items-end">
+		<div class="product-card__details | leading-none">
+			<p class="c-primary text-shadow-lg weight-bold">
+				{{ product.get_title() }}
+			</p>
+			<p class="c-brand size-lg">
+				{{ product.get_price_html() }}
+			</p>
+		</div>
+	</div>
+</a>

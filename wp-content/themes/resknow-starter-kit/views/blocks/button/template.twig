@@ -1,0 +1,6 @@
+<a class="button button--{{ fields.size }} {{ block.className }}" href="{{ is_preview ? '#' : fields.link.url }}">
+    {% if fields.icon %}
+        {{ icon(fields.icon) }}
+    {% endif %}
+    {{ fields.text ?? "Button text..." }}
+</a>

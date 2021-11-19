@@ -1,0 +1,32 @@
+.wpcf7-form-control-wrap {
+	display: block;
+}
+
+.wpcf7-acceptance label {
+	display: flex;
+	gap: var(--space-2);
+}
+
+.wpcf7 form .wpcf7-response-output {
+	background-color: var(--alert-color, var(--color-gray-90));
+	color: white;
+	padding: var(--space-3) var(--space-6);
+	border: 0;
+	box-shadow: var(--shadow-lg);
+	position: fixed;
+	text-align: center;
+	top: 0;
+	left: 0;
+	right: 0;
+	margin: 0;
+	z-index: 9999;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output {
+	--alert-color: var(--color-warning);
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+	--alert-color: var(--color-positive);
+}

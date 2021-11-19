@@ -1,0 +1,3 @@
+.carousel__slide[data-preview='true'] {
+	opacity: 1 !important;
+}

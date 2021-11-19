@@ -1,0 +1,45 @@
+{% set preview = fields.preview_slide | default(1) %}
+{% set scooch = fn('json_encode', {
+    autoplay: fields.autoplay,
+    autoplayInterval: fields.autoplay_interval ?? 5000,
+    keyboardControls: fields.keyboard,
+    allowFullscreen: fields.fullscreen,
+    scrollToChange: fields.scoll,
+    swipeToChange: fields.swipe
+}) %}
+
+<div class="block-carousel alignfull">
+    <div
+        class="carousel | scooch"
+
+        {% if not is_preview %}
+        x-data="{ scooch: null }"
+        @load.window="scooch = new Scooch($el, JSON.parse(`{{ fn('esc_attr', scooch) }}`))"
+        {% endif %}
+    >
+        {% for slide in fields.slides %}
+        <div
+            class="carousel__slide | scooch__slide"
+            style="--slide-image: url('{{ slide.url }}')"
+
+            {% if is_preview %}
+            data-preview="{{ preview == loop.index ? 'true' : 'false' }}"
+            {% endif %}
+        >
+            {% if slide.title or slide.caption %}
+            <div class="carousel__overlay">
+                <div class="carousel__overlay-inner">
+                    {% if slide.title %}
+                    <h2>{{ slide.title }}</h2>
+                    {% endif %}
+
+                    {% if slide.caption %}
+                    <p>{{ slide.caption }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</div>

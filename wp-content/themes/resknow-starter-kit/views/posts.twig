@@ -1,0 +1,16 @@
+{% extends "layouts/default.twig" %}
+
+{% block content %}
+<main id="content" class="content-container">
+    <div class="block-area">
+        {% for post in posts %}
+            <article>
+                <h2>{{ post.title }}</h2>
+                {{ fn('create_post_excerpt', post.content) }}
+            </article>
+        {% endfor %}
+
+        {% include "partials/pagination.twig" with { 'posts': posts } %}
+    </div>
+</main>
+{% endblock %}

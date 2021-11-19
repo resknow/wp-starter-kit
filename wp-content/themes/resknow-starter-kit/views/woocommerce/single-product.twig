@@ -1,0 +1,75 @@
+{% extends 'layouts/default.twig' %}
+
+{% set images = fn('get_product_images', this.id) %}
+
+{% block content %}
+	<div class="block-area | gradient from-gray-10 to-white py-3">
+		{{
+			fn(
+				'woocommerce_breadcrumb',
+				{
+					wrap_before: '<nav class="breadcrumb | alignwide">',
+					wrap_after: '</nav>'
+				}
+			)
+		}}
+	</div>
+
+	<section class="block-area | row-gap-16 mt-8">
+		<div class="single-product | alignwide | grid gap-12 md:cols-2">
+			<div class="md:col-span-2">
+				{% do action('woocommerce_before_single_product') %}
+			</div>
+
+			<div class="single-product__images">
+				<a data-fslightbox="product" data-type="image" href="{{ post.thumbnail.src('full') }}">
+					<img class="shadow-2xl"
+						src="{{ post.thumbnail.src('full') }}"
+						srcset="{{ post.thumbnail.src('product_image') }} 600w, {{
+						post.thumbnail.src(
+							'product_image_2x'
+						)
+						}} 1000w, {{ post.thumbnail.src('full') }} 1200w"
+						width="600px"
+						height="600px" />
+				</a>
+
+				{% if images %}
+					<div class="grid gap-3 cols-3 mt-2 md:cols-4">
+						{% for image in images %}
+							<a data-fslightbox="product" data-type="image" href="{{ image.url }}" class="shadow-lg">
+								<img src="{{ image.url }}"
+									srcset="{{ image.sizes.product_image }} 600w, {{
+									image.sizes.product_image_2x
+									}} 1000w, {{ image.url }} 1200w"
+									width="600px"
+									height="600px" />
+							</a>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+			<div class="single-product__summary | flow">
+				{% do action('woocommerce_before_single_product_summary') %}
+				{% do action('woocommerce_single_product_summary') %}
+				{% do action('woocommerce_after_single_product_summary') %}
+				{% do action('woocommerce_after_single_product') %}
+			</div>
+		</div>
+
+		{% if relatedProducts %}
+			<div class="alignwide | flow">
+				<h3 class="accent">
+					More like this
+				</h3>
+				<div class="grid gap-8 md:cols-3">
+					{% for productId in relatedProducts %}
+						{% include 'cards/product.twig' with {
+							id: productId
+						} %}
+					{% endfor %}
+				</div>
+			</div>
+		{% endif %}
+	</section>
+{% endblock %}

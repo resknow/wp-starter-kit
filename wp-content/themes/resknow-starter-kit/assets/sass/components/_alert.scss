@@ -1,0 +1,7 @@
+.alert {
+	--alert-padding: var(--space-3) var(--space-6);
+
+	background-color: var(--alert-color);
+	padding: var(--alert-padding);
+	text-align: center;
+}
