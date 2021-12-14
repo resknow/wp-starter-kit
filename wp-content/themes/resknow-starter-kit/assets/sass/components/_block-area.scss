@@ -1,5 +1,6 @@
 .block-area,
-.block-editor-block-list__layout.is-root-container {
+.block-editor-block-list__layout.is-root-container,
+.block-editor-inner-blocks > .block-editor-block-list__layout {
 	--gutter: var(--space-8, 2rem);
 	--columns: var(--gutter) calc(var(--gutter) / 2) 1fr calc(var(--gutter) / 2)
 		var(--gutter);

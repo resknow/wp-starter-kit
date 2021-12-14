@@ -5,7 +5,8 @@
 	"main": "gulpfile.js",
 	"scripts": {
 		"build": "gulp build",
-		"dev": "gulp watch"
+		"dev": "gulp watch",
+		"new-block": "npx hygen block new"
 	},
 	"author": "",
 	"license": "ISC",

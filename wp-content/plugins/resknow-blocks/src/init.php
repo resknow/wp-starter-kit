@@ -13,6 +13,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+function resknow_load_blocks() {
+	$blocks = array_filter(glob(__DIR__ . '/*'), 'is_dir');
+	if( empty($blocks) ) return [];
+
+	foreach ( $blocks as $key => $block ) {
+		$blocks[$key] = str_replace(__DIR__ . '/', '', $block);
+	}
+
+	return $blocks;
+}
+
+resknow_load_blocks();
+
 /**
  * Enqueue Gutenberg block assets for both frontend + backend.
  *
@@ -30,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 function resknow_blocks_cgb_block_assets() { // phpcs:ignore
 	// Register block styles for both frontend + backend.
 	wp_register_style(
-		'resknow_blocks-cgb-style-css', // Handle.
+		'resknow-blocks-style-css', // Handle.
 		plugins_url( 'dist/blocks.style.build.css', dirname( __FILE__ ) ), // Block style CSS.
 		is_admin() ? array( 'wp-editor' ) : null, // Dependency to include the CSS after it.
 		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: File modification time.
@@ -38,7 +51,7 @@ function resknow_blocks_cgb_block_assets() { // phpcs:ignore
 
 	// Register block editor script for backend.
 	wp_register_script(
-		'resknow_blocks-cgb-block-js', // Handle.
+		'resknow-blocks-block-js', // Handle.
 		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
 		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ), // Dependencies, defined above.
 		null, // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
@@ -47,7 +60,7 @@ function resknow_blocks_cgb_block_assets() { // phpcs:ignore
 
 	// Register block editor styles for backend.
 	wp_register_style(
-		'resknow_blocks-cgb-block-editor-css', // Handle.
+		'resknow-blocks-block-editor-css', // Handle.
 		plugins_url( 'dist/blocks.editor.build.css', dirname( __FILE__ ) ), // Block editor CSS.
 		array( 'wp-edit-blocks' ), // Dependency to include the CSS after it.
 		null // filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.editor.build.css' ) // Version: File modification time.
@@ -55,8 +68,8 @@ function resknow_blocks_cgb_block_assets() { // phpcs:ignore
 
 	// WP Localized globals. Use dynamic PHP stuff in JavaScript via `cgbGlobal` object.
 	wp_localize_script(
-		'resknow_blocks-cgb-block-js',
-		'cgbGlobal', // Array containing dynamic data for a JS Global.
+		'resknow-blocks-block-js',
+		'resknowBlocksGlobal', // Array containing dynamic data for a JS Global.
 		[
 			'pluginDirPath' => plugin_dir_path( __DIR__ ),
 			'pluginDirUrl'  => plugin_dir_url( __DIR__ ),
@@ -74,16 +87,18 @@ function resknow_blocks_cgb_block_assets() { // phpcs:ignore
 	 * @link https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type#enqueuing-block-scripts
 	 * @since 1.16.0
 	 */
-	register_block_type(
-		'resknow/feature-list', array(
-			// Enqueue blocks.style.build.css on both frontend & backend.
-			'style'         => 'resknow_blocks-cgb-style-css',
-			// Enqueue blocks.build.js in the editor only.
-			'editor_script' => 'resknow_blocks-cgb-block-js',
-			// Enqueue blocks.editor.build.css in the editor only.
-			'editor_style'  => 'resknow_blocks-cgb-block-editor-css',
-		)
-	);
+	$blocks = resknow_load_blocks();
+	if ( !empty($blocks) ) {
+		foreach ( $blocks as $block ) {
+			$name = sprintf( 'resknow/%s', $block );
+
+			register_block_type( $name, [
+				'style'         => 'resknow-blocks-style-css',
+				'editor_script' => 'resknow-blocks-block-js',
+				'editor_style'  => 'resknow-blocks-block-editor-css',
+			] );
+		}
+	}
 }
 
 // Hook: Block assets.

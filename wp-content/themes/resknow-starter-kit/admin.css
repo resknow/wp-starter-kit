@@ -17,3 +17,7 @@
 .edit-post-layout.is-sidebar-opened .edit-post-layout__content {
 	margin-right: var(--editor-sidebar-width);
 }
+
+.wp-block.is-selected {
+	outline: 1px dashed var(--block-selected-color, #ddd);
+}

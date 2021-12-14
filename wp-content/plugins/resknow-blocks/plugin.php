@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: resknow-blocks — CGB Gutenberg Block Plugin
+ * Plugin Name: Resknow Blocks
  * Plugin URI: https://github.com/ahmadawais/create-guten-block/
  * Description: resknow-blocks — is a Gutenberg plugin created via create-guten-block.
  * Author: mrahmadawais, maedahbatool

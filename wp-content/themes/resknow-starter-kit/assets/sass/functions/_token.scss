@@ -4,4 +4,5 @@
 	}
 
 	@warn "No tokens found for key: #{$key}";
+	@return null;
 }

@@ -1,12 +1,3 @@
-// Map WordPress utility sizes to our size scale
-$sizeMap: (
-	'sm': 'small',
-	'base': 'normal',
-	'xl': 'medium',
-	'2xl': 'large',
-	'4xl': 'huge'
-);
-
 /* Font family */
 @each $token, $value in token('font') {
 	.font-#{$token} {
@@ -18,12 +9,6 @@ $sizeMap: (
 @each $token, $value in token('size') {
 	.size-#{$token} {
 		font-size: #{$value};
-	}
-
-	@if (map-has-key($sizeMap, $token)) {
-		.has-#{map-get($sizeMap, $token)}-font-size {
-			font-size: #{$value};
-		}
 	}
 }
 
@@ -49,19 +34,21 @@ $sizeMap: (
 }
 
 /* Text Alignment */
-.align-left {
-	text-align: left;
+.align-left,
+.align-start {
+	text-align: start;
 }
 
 .align-center {
 	text-align: center;
 }
 
-.align-right {
-	text-align: right;
+.align-right,
+.align-end {
+	text-align: end;
 }
 
-/* Text Style */
+/* Text Transform */
 .uppercase {
 	text-transform: uppercase;
 }
