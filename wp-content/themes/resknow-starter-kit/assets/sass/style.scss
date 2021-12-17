@@ -13,10 +13,11 @@
 @import 'components/*.scss';
 
 /* Vendor */
-// @import 'vendor/*.scss';
+@import 'vendor/*.scss';
 
 /* Overrides */
 @import 'overrides/*.scss';
+@import 'overrides/**/*.scss';
 
 /* Utilities */
 @import 'utilities/*.scss';

@@ -1,0 +1,221 @@
+.woocommerce:not(body) {
+	display: grid;
+	gap: var(--space-8);
+}
+
+.woocommerce-info {
+	@extend .alert;
+}
+
+#order_review_heading {
+	margin-block-start: var(--space-20);
+}
+
+.shop_table {
+	border: 1px solid var(--color-gray-10);
+	border-radius: var(--radius-base);
+	padding: var(--space-3);
+	margin-block-start: var(--space-4);
+	width: 100%;
+
+	th {
+		text-align: left;
+	}
+
+	td,
+	th {
+		padding: var(--space-1);
+	}
+
+	tfoot th {
+		padding-inline-end: var(--space-2);
+		text-align: end;
+	}
+}
+
+/**
+ * Single Product
+ */
+.single-product__summary .price {
+	font-size: var(--size-2xl);
+	font-weight: var(--weight-bold);
+}
+
+.single_add_to_cart_button {
+	@extend .button--brand !optional;
+}
+
+.single-product__summary .cart,
+.single_variation_wrap > .woocommerce-variation-add-to-cart {
+	@extend .cluster;
+}
+
+.single-product__summary .variations_form.cart {
+	display: block;
+}
+
+/**
+ * Messages & Alerts
+ */
+.woocommerce-notices-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: center;
+	padding: var(--space-4);
+	z-index: 500;
+}
+
+.woocommerce-message {
+	background-color: var(--color-white);
+	color: var(--color-positive);
+	padding: var(--space-3) var(--space-6);
+	box-shadow: var(--shadow-lg);
+
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+
+	.button {
+		@extend .button--sm;
+		order: 2;
+	}
+}
+
+/**
+ * My Account
+ */
+.woocommerce-MyAccount-navigation {
+	display: flex;
+	justify-content: center;
+	margin-block-start: var(--space-4);
+
+	ul > * + * {
+		margin-block-start: var(--space-2);
+	}
+
+	a {
+		border: 1px solid var(--color-gray-10);
+		display: block;
+		padding: var(--space-3);
+
+		&:hover {
+			border-color: var(--color-accent);
+			background-color: var(--color-accent);
+		}
+	}
+
+	.is-active a {
+		border-color: var(--color-accent);
+		background-color: var(--color-accent);
+		font-weight: var(--weight-bold);
+	}
+
+	@media (min-width: 640px) {
+		ul {
+			display: flex;
+			gap: var(--space-2);
+			flex-wrap: wrap;
+
+			> * + * {
+				margin-block-start: 0;
+			}
+		}
+	}
+}
+
+/**
+ * Order Summary
+ */
+.woocommerce-order {
+	margin-block-start: var(--space-10);
+
+	> * + * {
+		margin-block-start: var(--space-8);
+	}
+}
+
+/**
+ * Thank You for your Order
+ */
+.woocommerce-thankyou-order-received {
+	@extend .h3;
+	color: var(--color-brand);
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+	.woocommerce-order-overview {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--space-4);
+		text-align: center;
+
+		strong {
+			display: block;
+			font-size: var(--size-lg);
+		}
+	}
+
+	.woocommerce-columns--addresses {
+		grid-template-columns: 1fr 1fr;
+
+		.woocommerce-column__title {
+			font-size: var(--size-base);
+		}
+	}
+}
+
+.woocommerce-customer-details--phone,
+.woocommerce-customer-details--email {
+	margin-block-start: var(--space-2);
+}
+
+/**
+ * Account
+ */
+.woocommerce-MyAccount-content {
+	max-width: 48rem;
+	margin: 0 auto;
+}
+
+.woocommerce-MyAccount-content .woocommerce-address-fields__field-wrapper {
+	margin-block-start: var(--space-6);
+}
+
+.woocommerce-MyAccount-content > * + *,
+.woocommerce-MyAccount-content
+	.woocommerce-address-fields__field-wrapper
+	> *
+	+ *,
+.woocommerce-MyAccount-content .woocommerce-EditAccountForm > * + * {
+	margin-block-start: var(--space-4);
+}
+
+.woocommerce-MyAccount-content
+	.woocommerce-address-fields__field-wrapper
+	p
+	> *
+	+ *,
+.woocommerce-MyAccount-content .woocommerce-EditAccountForm p > * + * {
+	margin-block-start: var(--space-1);
+}
+
+.woocommerce-Giftcards .woocommerce-Price-amount {
+	color: var(--color-brand);
+}
+
+/** Sale Item - Original Price **/
+del span {
+	text-decoration: line-through;
+}
+
+span.onsale {
+	background-color: var(--color-secondary);
+	font-size: var(--size-sm);
+	letter-spacing: var(--tracking-wide);
+	padding: var(--space-1) var(--space-3);
+	text-transform: uppercase;
+}

@@ -1,9 +1,8 @@
 .wp-block-columns.alignfull {
-	padding-left: var(--gutter);
-	padding-right: var(--gutter);
+	padding-inline: var(--gutter);
 }
 
 .wp-block-column > * + * {
 	--flow-space: var(--space-4);
-	margin-top: var(--flow-space);
+	margin-block-start: var(--flow-space);
 }

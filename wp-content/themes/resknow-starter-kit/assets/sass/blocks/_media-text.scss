@@ -4,5 +4,5 @@
 
 .wp-block-media-text__content > * + * {
 	--flow-space: var(--space-4);
-	margin-top: var(--flow-space);
+	margin-block-start: var(--flow-space);
 }

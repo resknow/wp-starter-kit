@@ -1,4 +1,7 @@
-/* Form Styles */
+form {
+	accent-color: var(--accent-color, var(--color-primary, inherit));
+}
+
 label {
 	display: block;
 	font-size: inherit;
@@ -17,9 +20,9 @@ select,
 textarea {
 	appearance: none;
 	background-color: white;
-	border-radius: var(--radius-base, 4px);
 	border: 0.06rem solid var(--color-gray-30, #ddd);
-	color: var(--color-text, #111);
+	border-radius: var(--radius-base, 4px);
+	color: var(--color-primary, #111);
 	display: block;
 	font-family: inherit;
 	font-size: inherit;
@@ -49,6 +52,6 @@ input[type='date']:focus,
 select:focus,
 textarea:focus {
 	border-color: var(--color-neutral, blue);
-	box-shadow: 0 0 0 4px rgba(color('neutral'), 0.2);
+	box-shadow: 0 0 0 4px var(--color-neutral-light, #eee);
 	outline: 0;
 }
