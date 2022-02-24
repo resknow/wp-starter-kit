@@ -12,10 +12,10 @@ add_action( 'wp_enqueue_scripts', function() {
     }
 
     // Stylesheets
-    Assets::add( 'style', 'global', 'style.min.css' );
+    Assets::add( 'style', 'global', 'style.css' );
 
     // Scripts
-    Assets::add( 'script', 'bundle', 'bundle.min.js' );
+    Assets::add( 'script', 'bundle', 'bundle.js' );
 
 });
 

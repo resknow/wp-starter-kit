@@ -1,28 +1,42 @@
 {
 	"name": "resknow-starter-kit",
-	"version": "0.2.0",
-	"description": "A starter theme for WordPress.",
-	"main": "gulpfile.js",
+	"version": "0.3.0",
+	"description": "A WordPress starter kit",
 	"scripts": {
-		"build": "gulp build",
-		"dev": "gulp watch",
-		"new-block": "npx hygen block new"
+		"build": "npm run assets:tokens && npm run assets:build",
+		"dev": "npm run assets:tokens && npm run assets:dev",
+		"assets:build": "NODE_ENV=production npx @11ty/eleventy",
+		"assets:dev": "npx @11ty/eleventy --watch",
+		"assets:tokens": "json-to-scss \"src/tokens.json\" \"src/assets/sass/_tokens.scss\" --k=sq"
 	},
-	"author": "",
-	"license": "ISC",
+	"author": "Chris Galbraith <chris@resknow.co.uk>",
+	"license": "MIT",
+	"browserslist": {
+		"production": [
+			">0.5%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
 	"devDependencies": {
-		"chalk": "^4.1.2",
-		"del": "^6.0.0",
-		"gulp": "^4.0.2",
-		"gulp-concat": "^2.6.1",
-		"gulp-cssnano": "^2.1.3",
-		"gulp-plumber": "^1.2.1",
-		"gulp-rename": "^2.0.0",
-		"gulp-rev": "^9.0.0",
-		"gulp-sass": "^5.0.0",
-		"gulp-sass-glob": "^1.1.0",
-		"gulp-uglify": "^3.0.2",
-		"node-sass-export": "0.0.7",
-		"sass": "^1.43.3"
+		"@11ty/eleventy": "^0.11.0",
+		"@11ty/eleventy-navigation": "^0.2.0",
+		"@11ty/eleventy-plugin-syntaxhighlight": "^3.1.1",
+		"chalk": "^3.0.0",
+		"clean-css": "^5.1.2",
+		"cypress": "^3.8.0",
+		"esbuild": "^0.12.9",
+		"globby": "^5.0.0",
+		"json-to-scss": "^1.6.2",
+		"node-sass-export": "^0.0.7",
+		"node-sass-glob-importer": "^5.3.2",
+		"npm-run-all": "^4.1.5",
+		"sass": "^1.34.1",
+		"unique-string": "^3.0.0"
 	}
 }

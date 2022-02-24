@@ -1,0 +1,17 @@
+/**
+ * We don't define the aspect-ratio values in
+ * tokens because Sass thinks we're doing maths
+ * and throws warnings (:
+ */
+
+.aspect-ratio-1 {
+	aspect-ratio: 1;
+}
+
+.aspect-ratio-16x9 {
+	aspect-ratio: #{16 / 9};
+}
+
+.aspect-ratio-4x3 {
+	aspect-ratio: #{4 / 3};
+}

@@ -40,3 +40,6 @@ error_log
 
 # environment specific
 .htaccess
+
+# built assets
+dist/

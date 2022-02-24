@@ -9,43 +9,23 @@ class Assets {
     public $design_tokens;
 
     public function __construct() {
-        $this->manifest = $this->load_manifest();
         $this->design_tokens = $this->load_design_tokens();
     }
 
-    private function load_manifest() {
-        $file = @file_get_contents( get_template_directory() . '/rev-manifest.json' );
-        return json_decode($file, true);
-    }
-
     private function load_design_tokens() {
-        $file = @file_get_contents( get_template_directory() . '/design-tokens.json' );
+        $file = @file_get_contents( get_template_directory() . '/src/tokens.json' );
         return json_decode($file, true);
     }
 
     /**
      * Get Instance
      */
-    public static function get_instance()
-    {
-
+    public static function get_instance() {
         if (self::$instance === null) {
             self::$instance = new self();
         }
 
         return self::$instance;
-    }
-
-    /**
-     * Asset filename
-     *
-     * @param string $key Filename
-     * @return string
-     */
-    public static function filename( $key ) {
-        if ( array_key_exists($key, self::get_instance()->manifest) ) {
-            return self::get_instance()->manifest[$key];
-        }
     }
 
     public static function add_style( $id, $src, $deps = [], $tag = false ) {
@@ -72,8 +52,7 @@ class Assets {
 
         // Handle dist directory
         if ( strpos($src, 'http') === false ) {
-            $filename = self::filename($src);
-            $src = self::dist_dir($filename);
+            $src = self::dist_dir($src);
         }
 
         if ( $type === 'style' ) {
