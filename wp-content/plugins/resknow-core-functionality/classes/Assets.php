@@ -94,7 +94,7 @@ class Assets {
      */
     public static function assets_dir( $suffix = false, $full_system_path = false ) {
         $prefix = $full_system_path ? get_template_directory() : get_template_directory_uri();
-        $dir = $prefix . '/assets';
+        $dir = $prefix . '/dist/assets';
 
         // Suffix, possible path to a file
         if ($suffix) {

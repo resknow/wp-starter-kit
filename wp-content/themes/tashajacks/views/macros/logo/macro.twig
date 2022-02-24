@@ -1,0 +1,13 @@
+{#
+
+    size: sm, md, lg
+    href: [default: /]
+
+#}
+{% macro logo(_) %}
+    {% set util = fn('get_context_utils') %}
+
+    <a class="logo logo--{{ size | default('md') }}" href="{{ _.href | default('/') }}">
+        <img src="{{ util.assets_dir }}/images/logo.png" alt="{{ timber.site.name }}" />
+    </a>
+{% endmacro %}

@@ -5,20 +5,17 @@ $tokens: (
     'lg': 1024px
   ),
   'color': (
-    'background': white,
-    'text': #191a22,
-    'primary': #30438d,
-    'secondary': #f55b4c,
-    'gray-90': #373946,
-    'gray-70': #565869,
-    'gray-50': #77798a,
-    'gray-30': #b3b4bd,
-    'gray-10': #eeeef0,
+    'bg': #fff,
+    'fg': #111,
+    'gray-90': #111,
+    'gray-70': #44464A,
+    'gray-50': #7A7C81,
+    'gray-30': #9EA0A3,
+    'gray-10': #EAEAEA,
     'neutral': #0779e4,
-    'negative': #f55b4c,
-    'negative-light': #fcd3cf,
-    'positive': #21bf73,
-    'warning': #f5af4b,
+    'negative': #DB5246,
+    'positive': #42B95E,
+    'warning': #EBD142,
     'white': #fff,
     'facebook': #1877f2,
     'twitter': #1da1f2,
@@ -26,7 +23,7 @@ $tokens: (
     'pinterest': #e60023
   ),
   'font': (
-    'base': '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol'
+    'base': 'capitana, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol'
   ),
   'weight': (
     'normal': 400,

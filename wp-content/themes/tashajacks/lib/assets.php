@@ -13,6 +13,7 @@ add_action( 'wp_enqueue_scripts', function() {
 
     // Stylesheets
     Assets::add( 'style', 'global', 'style.css' );
+    Assets::add( 'style', 'font', 'https://use.typekit.net/urw0iws.css' );
 
     // Scripts
     Assets::add( 'script', 'bundle', 'bundle.js' );
