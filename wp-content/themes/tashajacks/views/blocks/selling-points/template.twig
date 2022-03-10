@@ -1,0 +1,17 @@
+<section class="alignfull | bg-fg c-bg mt-0 py-page px-page">
+    <div class="container">
+        <ul class="cluster gap-12">
+            {% for item in fields.items %}
+            <li class="flow flow-space-2">
+                <a class="c-white" href="{{ item.link }}">
+                    {{ icon(item.icon, "size-2xl") }}
+                    <p class="c-white leading-none size-lg mt-2">
+                        {{ item.heading }}<br>
+                        <span class="c-gray-30 size-sm">{{ item.sub_heading }}</span>
+                    </p>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

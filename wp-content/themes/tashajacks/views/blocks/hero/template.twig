@@ -1,0 +1,44 @@
+{% from "macros/responsive-image/macro.twig" import responsiveImage %}
+
+<section class="hero alignfull">
+    <div class="hero__overlay">
+        <div class="container">
+            <p class="hero__title mw-xs">{{ fields.text }}</p>
+
+            {% if fields.buttons %}
+            <div class="hero__buttons-mobile cluster gap-2 mt-6">
+                {% for button in fields.buttons %}
+                <a class="button button--sm button--{{ button.colour }}" href="{{ button.link }}">
+                    {% if button.icon %}
+                        {{ icon(button.icon) }}
+                    {% endif %}
+                    <span>{{ button.label }}</span>
+                </a>
+                {% endfor %}
+            </div>
+            <div class="hero__buttons-desktop cluster gap-2 mt-6">
+                {% for button in fields.buttons %}
+                <a class="button button--{{ button.colour }}" href="{{ button.link }}">
+                    {% if button.icon %}
+                        {{ icon(button.icon) }}
+                    {% endif %}
+                    <span>{{ button.label }}</span>
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="hero__images">
+        {% for image in fields.images %}
+            {{ responsiveImage({
+                image: image,
+                sizes: {
+                    "hero_medium": "(max-width: 980px)",
+                    "hero_small": "(max-width: 480px)",
+                },
+                defaultSize: "hero"
+            }) }}
+        {% endfor %}
+    </div>
+</section>

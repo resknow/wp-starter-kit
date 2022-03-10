@@ -16,7 +16,9 @@ add_action( 'wp_enqueue_scripts', function() {
     Assets::add( 'style', 'font', 'https://use.typekit.net/urw0iws.css' );
 
     // Scripts
+    Assets::add( 'script', 'scooch', 'assets/js/scooch.js' );
     Assets::add( 'script', 'bundle', 'bundle.js' );
+    Assets::add( 'script', 'order-form', 'assets/js/wc-order-form.js' );
 
 });
 

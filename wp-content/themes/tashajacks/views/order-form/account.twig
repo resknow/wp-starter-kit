@@ -1,0 +1,118 @@
+{% extends "layouts/default.twig" %}
+
+{% from "macros/order-form/stepper.twig" import stepper %}
+{% from "macros/order-form/floating-label-input.twig" import floatingLabelInput %}
+
+{% set state = {
+	currentStep: "type",
+	steps: [
+		{ title: "Type", isComplete: true },
+		{ title: "Length", isComplete: true },
+		{ title: "Colour", isComplete: true },
+		{ title: "Fitting Method", isComplete: true },
+		{ title: "Options", isComplete: true },
+		{ title: "Account", isActive: true }
+	]
+} %}
+
+{% block content %}
+    <main id="content" class="content-container">
+		<tj-order-form>
+			<form class="order-form | block-area" action="#" method="post">
+				<input type="hidden" name="step" value="{{ state.currentStep }}">
+
+				<header class="alignwide | flow flow-space-6 mt-12">
+					<h1 class="align-center">Place an Order</h1>
+					{{ stepper({ items: state.steps }) }}
+				</header>
+
+				<section class="alignwide | account-form">
+                    <aside class="account-form__order-summary">Order summary</aside>
+                    <div class="account-form__form | flow flow-space-12">
+
+                        <section x-data="{ showLoginForm: false }" class="align-center bg-fg c-bg flow flow-space-2 px-8 py-6">
+                            <h2 class="h4">Have an account?</h2>
+                            <button class="button button--gray-30">Login</button>
+                        </section>
+
+                        <fieldset class="flow">
+                            <legend class="h4">Contact Information</legend>
+                            <div class="flow flow-space-2">
+                                {{ floatingLabelInput({
+                                    label: "Email address",
+                                    name: "email",
+                                    type: "email"
+                                }) }}
+                                {{ floatingLabelInput({
+                                    label: "Phone number",
+                                    name: "phone",
+                                    type: "tel"
+                                }) }}
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="flow">
+                            <legend class="h4">Shipping Address</legend>
+                            <div class="flow flow-space-2">
+                                <div class="grid sm:cols-2 gap-2">
+                                    {{ floatingLabelInput({
+                                        label: "First Name",
+                                        name: "first_name"
+                                    }) }}
+                                    {{ floatingLabelInput({
+                                        label: "Last Name",
+                                        name: "last_name"
+                                    }) }}
+                                </div>
+                                {{ floatingLabelInput({
+                                    label: "Address",
+                                    name: "address"
+                                }) }}
+                                <div class="grid sm:cols-2 gap-2">
+                                    {{ floatingLabelInput({
+                                        label: "Country",
+                                        name: "country"
+                                    }) }}
+                                    {{ floatingLabelInput({
+                                        label: "City",
+                                        name: "city"
+                                    }) }}
+                                </div>
+                                <div class="grid sm:cols-2 gap-2">
+                                    {{ floatingLabelInput({
+                                        label: "County",
+                                        name: "county"
+                                    }) }}
+                                    {{ floatingLabelInput({
+                                        label: "Postcode",
+                                        name: "postcode"
+                                    }) }}
+                                </div>
+                                <div class="checkbox">
+                                    <input
+                                        id="billing_address_for_shipping"
+                                        name="billing_address_for_shipping"
+                                        type="checkbox"
+                                    >
+                                    <label for="billing_address_for_shipping">
+                                        Use same address for billing
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="flow">
+                            <legend class="h4">Order Notes</legend>
+                            <textarea id="order-notes" name="order-notes" placeholder="Order notes, special instructions etc."></textarea>
+                        </fieldset>
+
+                    </div>
+				</section>
+
+				<footer class="flex items-center justify-center">
+					<button class="button" type="submit">Continue</button>
+				</footer>
+			</form>
+		</tj-order-form>
+    </main>
+{% endblock %}

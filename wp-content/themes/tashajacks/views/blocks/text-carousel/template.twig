@@ -1,0 +1,32 @@
+{% from "macros/responsive-image/macro.twig" import responsiveImage %}
+
+<section class="text-carousel alignfull">
+    <div class="container">
+        <div class="text-carousel__text flow px-page py-page">
+            <InnerBlocks />
+        </div>
+        <div
+            class="text-carousel__carousel carousel | scooch"
+
+            {% if not is_preview %}
+            x-data="{ scooch: null }"
+            @load.window="scooch = new Scooch($el, { autoplay: false, scrollToChange: false })"
+            {% endif %}
+        >
+            {% for image in fields.images %}
+                {{ responsiveImage({ class: 'scooch__slide', image: image, defaultSize: "large" }) }}
+            {% endfor %}
+
+            <div class="carousel__controls">
+                <button @click="scooch.previous()" class="button" type="button">
+                    {{ icon("chevron-left", "c-white size-3xl") }}
+                    <span class="sr-only">Previous slide</span>
+                </button>
+                <button @click="scooch.next()" class="button" type="button">
+                    {{ icon("chevron-right", "c-white size-3xl") }}
+                    <span class="sr-only">Next slide</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

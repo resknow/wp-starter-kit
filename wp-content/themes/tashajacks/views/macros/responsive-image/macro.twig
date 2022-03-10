@@ -1,0 +1,20 @@
+{% macro responsiveImage(_) %}
+<picture class="responsive-image {{ _.class }}">
+
+    {% for size, media in _.sizes %}
+    <source
+        srcset="{{ _.image.sizes[size] }}"
+        width="{{ _.image.sizes[size ~ '-width'] }}"
+        height="{{ _.image.sizes[size ~ '-height'] }}"
+        media="{{ media }}"
+    >
+    {% endfor %}
+
+    <img
+        src="{{ _.image.sizes[_.defaultSize] }}"
+        width="{{ _.image.sizes[_.defaultSize ~ '-width'] }}"
+        height="{{ _.image.sizes[_.defaultSize ~ '-height'] }}"
+        alt="{{ _.image.alt }}"
+    >
+</picture>
+{% endmacro %}

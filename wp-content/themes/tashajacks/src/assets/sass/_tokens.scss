@@ -5,6 +5,7 @@ $tokens: (
     'lg': 1024px
   ),
   'color': (
+    'accent': #1a092a,
     'bg': #fff,
     'fg': #111,
     'gray-90': #111,
@@ -27,7 +28,7 @@ $tokens: (
   ),
   'weight': (
     'normal': 400,
-    'bold': 700
+    'bold': 800
   ),
   'size': (
     'xs': 0.75rem,
@@ -41,6 +42,7 @@ $tokens: (
     '5xl': 2.986rem
   ),
   'space': (
+    '0': 0,
     '1': 0.25rem,
     '2': 0.5rem,
     '3': 0.75rem,
@@ -59,11 +61,13 @@ $tokens: (
     '48': 12rem,
     '56': 14rem,
     '64': 16rem,
+    'page': clamp(2rem, 1.3636rem + 5.6818vw, 5rem),
     'px': 0.06rem,
     'half': 0.125rem
   ),
   'max-width': (
-    'sm': 60ch,
+    'xs': 15ch,
+    'sm': 40ch,
     'lg': 85ch
   ),
   'leading': (

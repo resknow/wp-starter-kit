@@ -1,0 +1,48 @@
+.image-select {
+	--image-select-columns: 3;
+	--image-select-label-background: #{rgba(black, 0.3)};
+	--image-select-button-border: var(--color-gray-30);
+}
+
+.image-select__button-content {
+	display: grid;
+
+	> * {
+		grid-column: 1 / -1;
+		grid-row: 1;
+	}
+}
+
+.image-select__button-label {
+	background-color: var(--image-select-label-background);
+	border: var(--space-1) solid var(--image-select-button-border);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+
+	p {
+		text-align: center;
+	}
+}
+
+.image-select__button:focus,
+.image-select__button:hover,
+.image-select__button.is-selected {
+	--image-select-label-background: #{rgba(black, 0.6)};
+	--image-select-button-border: var(--color-positive);
+}
+
+.image-select__button-icon {
+	position: absolute;
+	bottom: var(--space-2);
+	right: var(--space-2);
+}
+
+@media (min-width: 578px) {
+	.image-select {
+		display: grid;
+		gap: var(--space-3);
+		grid-template-columns: repeat(var(--image-select-columns), 1fr);
+	}
+}

@@ -1,0 +1,51 @@
+{
+	"name": "selling-points",
+	"title": "Selling Points",
+	"description": "List of reasons to use your business",
+	"category": "formatting",
+	"icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\">    <g>        <path fill=\"none\" d=\"M0 0h24v24H0z\"/>        <path d=\"M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 9H8v2h4v3l4-4-4-4v3z\"/>    </g></svg>",
+	"keywords": ["points", "icons", "selling"],
+	"align": "full",
+	"supports": {
+		"align": ["full"]
+	},
+	"fields": [
+		{
+			"label": "Items",
+			"name": "items",
+			"type": "repeater",
+			"layout": "block",
+			"sub_fields": [
+				{
+					"key": "items-icon",
+					"label": "Icon",
+					"name": "icon",
+					"type": "select",
+					"choices": [],
+					"ui": true
+				},
+				{
+					"key": "items-heading",
+					"label": "Heading",
+					"name": "heading",
+					"type": "text",
+					"required": true
+				},
+				{
+					"key": "items-sub-heading",
+					"label": "Sub Heading",
+					"name": "sub_heading",
+					"type": "text",
+					"required": true
+				},
+				{
+					"key": "items-link",
+					"label": "Link",
+					"name": "link",
+					"type": "url",
+					"required": true
+				}
+			]
+		}
+	]
+}

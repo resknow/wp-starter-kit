@@ -1,40 +1,39 @@
 {% macro mobileMenu(items, phoneNumber) %}
-<div x-data>
-    <nav class="mobile-menu" :data-state="$store.menuIsOpen ? 'open' : 'closed'">
-        <ul>
-            {% for link in items %}
-                <li>
-                    <a href="{{ link.url }}">{{ link.title }}</a>
+<nav x-data class="mobile-menu" :data-state="$store.menuIsOpen ? 'open' : 'closed'">
+    <ul>
+        {% for link in items %}
+            <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
 
-                    {% if link.children %}
-                        <ul class="mobile-menu__dropdown | ml-4">
-                            {% for child in link.children %}
-                            <li>
-                                <a href="{{ child.url }}">{{ child.title }}</a>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
+                {% if link.children %}
+                    <ul class="mobile-menu__dropdown | ml-4">
+                        {% for child in link.children %}
+                        <li>
+                            <a href="{{ child.url }}">{{ child.title }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
 
-        {% if phoneNumber %}
-        <div class="mobile-menu__phone">
-            <p class="uppercase c-gray-70 tracking-wide size-sm">Call Us</p>
-            <a href="tel:{{ phoneNumber }}">{{ phoneNumber }}</a>
-        </div>
-        {% endif %}
-    </nav>
+    {% if phoneNumber %}
+    <div class="mobile-menu__phone">
+        <p class="uppercase c-gray-70 tracking-wide size-sm">Call Us</p>
+        <a href="tel:{{ phoneNumber }}">{{ phoneNumber }}</a>
+    </div>
+    {% endif %}
+</nav>
 
-    <button
-        @click="$store.menuIsOpen = !$store.menuIsOpen"
-        :data-state="$store.menuIsOpen ? 'open' : 'closed'"
-        class="hamburger"
-    >
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </button>
-</div>
+<button
+    x-data
+    @click="$store.menuIsOpen = !$store.menuIsOpen"
+    :data-state="$store.menuIsOpen ? 'open' : 'closed'"
+    class="hamburger"
+>
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+</button>
 {% endmacro %}

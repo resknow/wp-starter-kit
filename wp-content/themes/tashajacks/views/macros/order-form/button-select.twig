@@ -1,0 +1,15 @@
+{% macro buttonSelect(_) %}
+<div x-data="{ value: null }" class="button-select | cluster gap-1">
+    <input type="hidden" name="{{ _.name }}" x-model="value">
+    {% for item in _.items %}
+        <button
+            class="button button--sm button--gray-10"
+            type="button"
+            @click="value = '{{ item.value }}'"
+            :class="{ 'bg-gray-90 c-white': value === '{{ item.value }}' }"
+        >
+            {{ item.label }}
+        </button>
+    {% endfor %}
+</div>
+{% endmacro %}

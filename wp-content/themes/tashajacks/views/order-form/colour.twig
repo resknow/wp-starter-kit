@@ -1,0 +1,52 @@
+{% extends "layouts/default.twig" %}
+
+{% from "macros/order-form/stepper.twig" import stepper %}
+{% from "macros/order-form/image-select.twig" import imageSelect %}
+
+{% set state = {
+	currentStep: "length",
+	steps: [
+		{ title: "Type", isComplete: true },
+		{ title: "Length", isComplete: true },
+		{ title: "Colour", isActive: true },
+		{ title: "Fitting Method" },
+		{ title: "Options" },
+		{ title: "Account" }
+	],
+} %}
+
+{% block content %}
+    <main id="content" class="content-container">
+		<tj-order-form>
+			<form class="order-form | block-area" action="#" method="post">
+				<input type="hidden" name="step" value="{{ state.currentStep }}">
+
+				<header class="alignwide | flow flow-space-6 mt-12">
+					<h1 class="align-center">Place an Order</h1>
+					{{ stepper({ items: state.steps }) }}
+				</header>
+
+                <section class="alignwide | split-section">
+                    <div class="flow flow-space-1 py-8">
+                        <label>Choose your colour</label>
+                        <p>You can see all available colours in our <a href="#">Colour Charts</a>.</p>
+                        <textarea class="mt-4"></textarea>
+                        <p class="c-gray-70 size-sm">Please give colour chart name and reference numbers, and or brief description of what you need.</p>
+                    </div>
+					<div class="split-section__divider">
+						<span>&amp;</span>
+					</div>
+                    <div class="flow flow-space-1 py-8">
+						<label>Upload photos</label>
+						<p>If you can't find a matching colour or you'd like to show us what you like, upload some photos to help us pick the right one for you.</p>
+						<input class="mt-4" type="file" multiple name="colour-photos">
+					</div>
+                </section>
+
+				<footer class="flex items-center justify-center">
+					<button class="button" type="submit">Continue</button>
+				</footer>
+			</form>
+		</tj-order-form>
+    </main>
+{% endblock %}

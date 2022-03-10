@@ -1,20 +1,18 @@
-$hideMobileMenuAt: $showMenuAt !default;
-
 .hamburger {
-	--bar-color: var(--color-text, black);
+	--bar-color: var(--color-bg, black);
 
-	position: relative;
+	background-color: var(--color-fg);
+	padding: var(--space-2) var(--space-3);
+	position: fixed;
+	bottom: var(--space-4);
+	right: 0;
 	z-index: 9;
-
-	@media (min-width: $hideMobileMenuAt) {
-		display: none;
-	}
 }
 
 .hamburger .bar {
 	background-color: var(--bar-color);
 	display: block;
-	height: 3px;
+	height: 2px;
 	margin: 6px 0;
 	transition: 0.4s;
 	width: 35px;
@@ -80,9 +78,5 @@ $hideMobileMenuAt: $showMenuAt !default;
 	&[data-state='open'] {
 		transform: translateX(0);
 		transition: transform 250ms ease-in-out;
-	}
-
-	@media (min-width: $hideMobileMenuAt) {
-		display: none;
 	}
 }

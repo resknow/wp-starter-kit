@@ -1,0 +1,10 @@
+{% macro floatingLabelInput(_) %}
+    <div class="floating-label-input">
+        <label for="{{ _.name }}">{{ _.label }}</label>
+        <input
+            type="{{ _.type | default('text') }}"
+            id="{{ _.name }}"
+            name="{{ _.name }}"
+        >
+    </div>
+{% endmacro %}

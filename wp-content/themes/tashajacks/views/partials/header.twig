@@ -2,11 +2,39 @@
 {% from "macros/menu/macro.twig" import menu %}
 {% from "macros/mobile-menu/macro.twig" import mobileMenu %}
 
-<header class="bg-fg px-8 py-4">
-    <div class="container flex justify-between items-center">
-        {{ logo() }}
+{{ mobileMenu(menu, globals.phone ?? "0208 300 8833") }}
 
-        {{ mobileMenu(menu, globals.phone ?? "0208 300 8833") }}
-        {{ menu(menu) }}
+<header class="header | bg-fg px-page py-4">
+    <div class="container flex justify-between items-center">
+        <button class="header__menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        {{ logo({ class: "header__logo" }) }}
+
+        <nav>
+            <ul class="flex items-center gap-3">
+                <li>
+                    <a class="c-gray-30" href="/account/">
+                        {{ icon("user", "size-xl") }}
+                        <span class="sr-only">My Account</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="c-gray-30" href="/bag/">
+                        {{ icon("bag", "size-xl") }}
+                        <span class="sr-only">My Bag</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="c-gray-30" href="/search/">
+                        {{ icon("search", "size-xl") }}
+                        <span class="sr-only">Search</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </header>

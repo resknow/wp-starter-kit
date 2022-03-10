@@ -47,7 +47,7 @@
 
 .single-product__summary .cart,
 .single_variation_wrap > .woocommerce-variation-add-to-cart {
-	@extend .cluster;
+	// @extend .cluster;
 }
 
 .single-product__summary .variations_form.cart {
@@ -186,19 +186,12 @@
 }
 
 .woocommerce-MyAccount-content > * + *,
-.woocommerce-MyAccount-content
-	.woocommerce-address-fields__field-wrapper
-	> *
-	+ *,
+.woocommerce-MyAccount-content .woocommerce-address-fields__field-wrapper > * + *,
 .woocommerce-MyAccount-content .woocommerce-EditAccountForm > * + * {
 	margin-block-start: var(--space-4);
 }
 
-.woocommerce-MyAccount-content
-	.woocommerce-address-fields__field-wrapper
-	p
-	> *
-	+ *,
+.woocommerce-MyAccount-content .woocommerce-address-fields__field-wrapper p > * + *,
 .woocommerce-MyAccount-content .woocommerce-EditAccountForm p > * + * {
 	margin-block-start: var(--space-1);
 }

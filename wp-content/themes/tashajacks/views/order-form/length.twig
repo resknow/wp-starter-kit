@@ -1,0 +1,43 @@
+{% extends "layouts/default.twig" %}
+
+{% from "macros/order-form/stepper.twig" import stepper %}
+{% from "macros/order-form/quantity-input.twig" import quantityInput %}
+
+{% set state = {
+	currentStep: "length",
+	steps: [
+		{ title: "Type", isComplete: true },
+		{ title: "Length", isActive: true },
+		{ title: "Colour" },
+		{ title: "Fitting Method" },
+		{ title: "Options" },
+		{ title: "Account" }
+	],
+} %}
+
+{% block content %}
+    <main id="content" class="content-container">
+		<tj-order-form>
+			<form class="order-form | block-area" action="#" method="post">
+				<input type="hidden" name="step" value="{{ state.currentStep }}">
+
+				<header class="alignwide | flow flow-space-6 mt-12">
+					<h1 class="align-center">Place an Order</h1>
+					{{ stepper({ items: state.steps }) }}
+				</header>
+
+				<section class="flow flow-space-8 | align-center">
+					<label class="size-xl weight-normal" for="length">Please let us know which length you'd like (max. 75cm)</label>
+                    {{ quantityInput({
+                        showLabel: false,
+                        id: "length"
+                    }) }}
+				</section>
+
+				<footer class="flex items-center justify-center">
+					<button class="button" type="submit">Continue</button>
+				</footer>
+			</form>
+		</tj-order-form>
+    </main>
+{% endblock %}

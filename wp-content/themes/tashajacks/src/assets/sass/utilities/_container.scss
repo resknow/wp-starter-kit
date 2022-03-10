@@ -1,5 +1,6 @@
 /** Container Utility **/
 .container {
-	max-width: var(--max-width, 64rem);
+	max-width: var(--max-width, 70rem);
 	margin-inline: auto;
+	width: 100%; // Fixes the element shrinking to content width when inside a flex parent
 }

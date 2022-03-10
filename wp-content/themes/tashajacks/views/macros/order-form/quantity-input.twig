@@ -1,0 +1,28 @@
+{% macro quantityInput(_) %}
+<div
+    x-data="{ value: {{ _.value | default('0') }}, minValue: 0 }"
+    class="quantity"
+>
+    {% if _.showLabel | default(true) %}
+    <label class="quantity__label" for="{{ _.id }}">{{ _.label }}</label>
+    {% endif %}
+
+    <div class="quantity__controls">
+        <button x-cloak @click="value = value > minValue ? parseInt(value)-1 : 0" type="button">
+            <span aria-hidden="true">-</span>
+            <span class="screen-reader-text">Subtract 1 from quantity</span>
+        </button>
+        <input
+            id="{{ _.id }}"
+            name="{{ _.name ?? _.id }}"
+            type="text"
+            x-model="value"
+            x-ref="input"
+        />
+        <button x-cloak @click="value = parseInt(value)+1" type="button">
+            <span aria-hidden="true">+</span>
+            <span class="screen-reader-text">Add 1 from quantity</span>
+        </button>
+    </div>
+</div>
+{% endmacro %}

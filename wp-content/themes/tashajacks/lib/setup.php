@@ -24,7 +24,7 @@ add_action('after_setup_theme', function () {
 
     // Editor Styles
     add_theme_support( 'editor-styles' );
-    add_editor_style( 'dist/style.min.css' );
+    add_editor_style( 'dist/style.css' );
 
     // Add Featured Image Support for posts
     add_theme_support( 'post-thumbnails' );
@@ -49,9 +49,9 @@ add_action('after_setup_theme', function () {
     add_image_size( 'panel_image', 600, 300, true );
 
     // Hero Sizes
-    add_image_size( 'hero', 1800, 840, true );
-    add_image_size( 'hero_medium', 980, 457, true );
-    add_image_size( 'hero_small', 480, 224, true );
+    add_image_size( 'hero', 1920, 1025, true );
+    add_image_size( 'hero_medium', 980, 523, true );
+    add_image_size( 'hero_small', 480, 480, true );
 
     // Register Menu
     register_nav_menu( 'main-menu', __('Main Menu') );

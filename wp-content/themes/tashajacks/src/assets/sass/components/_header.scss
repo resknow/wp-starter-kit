@@ -1,0 +1,29 @@
+.header__logo {
+	max-width: 7rem;
+}
+
+.header__menu-toggle {
+	display: none;
+}
+
+.header__menu-toggle span {
+	background-color: var(--color-white);
+	border-radius: var(--radius-full);
+	height: var(--space-half);
+	display: block;
+	width: 2rem;
+}
+
+.header__menu-toggle span:nth-child(2) {
+	margin-block: var(--space-2);
+}
+
+.header__menu-toggle span:last-child {
+	width: 50%;
+}
+
+@media (min-width: 768px) {
+	.header__menu-toggle {
+		display: block;
+	}
+}

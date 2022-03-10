@@ -1,0 +1,12 @@
+{% macro stepper(_) %}
+    {% from "macros/number/macro.twig" import number %}
+
+    <ol class="stepper">
+        {% for item in _.items %}
+        <li class="stepper__item {{ item.isActive ? 'is-active' : '' }} {{ item.isComplete ? 'is-complete' : '' }}">
+            {{ number({ content: loop.index, class: "stepper__number" }) }}
+            <h2 class="stepper__title">{{ item.title }}</h2>
+        </li>
+        {% endfor %}
+    </ol>
+{% endmacro %}

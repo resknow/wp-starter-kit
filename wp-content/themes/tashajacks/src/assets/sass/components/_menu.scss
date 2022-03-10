@@ -1,5 +1,3 @@
-$showMenuAt: 900px !default;
-
 .menu {
 	display: none;
 
@@ -24,9 +22,5 @@ $showMenuAt: 900px !default;
 		padding: var(--menu-dropdown-padding, var(--space-4) var(--space-6));
 		position: absolute;
 		top: var(--menu-dropdown-v-offset, var(--space-8));
-	}
-
-	@media (min-width: $showMenuAt) {
-		display: block;
 	}
 }

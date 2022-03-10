@@ -1,5 +1,5 @@
 /** Cluster Utility **/
-.cluster {
+:where(.cluster) {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;

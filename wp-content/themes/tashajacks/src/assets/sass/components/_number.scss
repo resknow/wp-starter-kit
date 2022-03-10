@@ -1,0 +1,18 @@
+:root {
+	--number-highlight-color: var(--color-gray-10);
+	--number-color: var(--color-fg);
+	--number-size: 2rem;
+}
+
+.number {
+	align-items: center;
+	background-color: var(--number-highlight-color);
+	border-radius: var(--radius-full);
+	color: var(--number-color);
+	display: flex;
+	font-size: var(--size-sm);
+	font-weight: var(--weight-bold);
+	height: var(--number-size);
+	justify-content: center;
+	width: var(--number-size);
+}

@@ -1,0 +1,23 @@
+.floating-label-input {
+	display: grid;
+
+	> * {
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	label {
+		color: var(--color-gray-50);
+		font-weight: var(--weight-normal);
+		padding: var(--space-3);
+		position: relative;
+		transition: transform 180ms ease-in-out;
+		will-change: transform;
+		width: max-content;
+		z-index: 2;
+	}
+
+	input {
+		padding-inline-start: var(--space-40);
+	}
+}

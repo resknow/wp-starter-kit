@@ -408,3 +408,9 @@ if ( ! function_exists( 'get_category_tree' ) ) {
         return $category[0];
     }
 }
+
+if ( !function_exists('str_starts_with') ) {
+    function str_starts_with( $haystack, $needle ) {
+        return substr($haystack, 0, strlen($needle)) === $needle;
+    }
+}

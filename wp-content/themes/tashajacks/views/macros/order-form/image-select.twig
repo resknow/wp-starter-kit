@@ -1,0 +1,30 @@
+{% macro imageSelect(_) %}
+    <div x-data="{ selectedImage: null }" class="image-select">
+        <input type="hidden" id="{{ _.id }}" name="{{ _.name }}" x-model="selectedImage">
+
+        {% for item in _.items %}
+        <button
+            @click="selectedImage = '{{ item.value }}'"
+            :class="{ 'is-selected': selectedImage === '{{ item.value }}' }"
+            type="button"
+            class="image-select__button"
+        >
+            <div class="image-select__button-content">
+                <img
+                    src="{{ item.image.sizes.large }}"
+                    alt=""
+                    width="{{ item.image.sizes['large-width'] }}"
+                    height="{{ item.image.sizes['large-height'] }}"
+                    loading="lazy"
+                />
+                <div class="image-select__button-label">
+                    <p class="c-white weight-bold">{{ item.label }}</p>
+                    <span class="image-select__button-icon" x-show="selectedImage === '{{ item.value }}'">
+                        {{ icon("check", "c-positive size-2xl") }}
+                    </span>
+                </div>
+            </div>
+        </button>
+        {% endfor %}
+    </div>
+{% endmacro %}

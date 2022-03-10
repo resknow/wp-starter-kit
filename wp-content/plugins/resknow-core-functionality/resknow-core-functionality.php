@@ -22,7 +22,7 @@ if ( !class_exists( 'CoreFunctionality' ) ) {
     require_once __DIR__ . '/classes/PostTypes.php';
     require_once __DIR__ . '/functions/helpers.php';
     require_once __DIR__ . '/functions/woocommerce.php';
-    require_once __DIR__ . '/timber-library/timber.php';
+    require_once __DIR__ . '/dependencies/timber-library/timber.php';
 
     class CoreFunctionality {
 
@@ -59,10 +59,18 @@ if ( !class_exists( 'CoreFunctionality' ) ) {
         }
 
         public function register_options_pages() {
-            acf_add_options_page([
+            $globals = acf_add_options_page([
                 'page_title'    => 'Globals',
                 'icon_url'      => 'dashicons-admin-site-alt',
                 'position'      => '60.1',
+                'redirect'      => false
+            ]);
+
+            acf_add_options_sub_page([
+                'parent_slug'   => $globals['menu_slug'],
+                'page_title'    => 'Order Form',
+                'icon_url'      => 'dashicons-feedback',
+                'position'      => '60.2',
                 'redirect'      => false
             ]);
         }

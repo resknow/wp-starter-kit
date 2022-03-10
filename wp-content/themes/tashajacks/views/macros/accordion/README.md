@@ -1,7 +1,7 @@
 ### Usage
 
 ```
-{% from "macros/accordion/macro.njk" import accordion %}
+{% from "macros/accordion/macro.twig" import accordion %}
 
 {{ accordion({
     items: [

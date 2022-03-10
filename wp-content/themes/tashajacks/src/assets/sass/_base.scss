@@ -55,6 +55,10 @@ p {
 a {
 	color: var(--color-neutral, blue);
 	position: relative;
+	text-decoration: none;
+}
+
+a:not([class]) {
 	text-decoration: underline;
 }
 
@@ -94,9 +98,17 @@ button {
 }
 
 svg {
-	fill: currentColor;
 	height: 1em;
 	width: 1em;
+}
+
+// Set fill colour for icons that use Stoke over Fill
+svg:not([fill='none']) {
+	fill: currentColor;
+}
+
+svg[fill='none'] {
+	stroke: currentColor;
 }
 
 figcaption,

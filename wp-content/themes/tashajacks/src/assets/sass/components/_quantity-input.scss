@@ -1,0 +1,44 @@
+.quantity {
+	--quantity-background-color: var(--color-fg);
+	--quantity-background-color-hover: var(--color-gray-90);
+	--quantity-color: var(--color-bg);
+}
+
+.quantity__controls {
+	display: grid;
+	grid-template-columns: 40px 1fr 40px;
+	gap: var(--space-1);
+	margin-top: 0.4em;
+	margin-bottom: 1em;
+}
+
+.quantity__label {
+	display: block;
+	text-transform: uppercase;
+}
+
+.quantity button {
+	border: 2px solid var(--quantity-background-color);
+	border-radius: 0;
+	background-color: var(--quantity-background-color);
+	color: var(--quantity-color);
+	cursor: pointer;
+	display: flex;
+	font-family: inherit;
+	font-size: 18px;
+	line-height: 1;
+	padding: 11px 16px;
+	min-width: 3ch;
+}
+
+.quantity button:hover {
+	background-color: var(--quantity-background-color-hover);
+	border-color: var(--quantity-background-color-hover);
+	color: white;
+}
+
+.quantity input {
+	appearance: none;
+	border-radius: 0;
+	text-align: center;
+}

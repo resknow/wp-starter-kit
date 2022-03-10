@@ -1,0 +1,69 @@
+{% extends "layouts/default.twig" %}
+
+{% from "macros/order-form/stepper.twig" import stepper %}
+{% from "macros/order-form/image-select.twig" import imageSelect %}
+
+{% set state = {
+	currentStep: "type",
+	steps: [
+		{ title: "Type", isComplete: true },
+		{ title: "Length" },
+		{ title: "Colour" },
+		{ title: "Fitting Method" },
+		{ title: "Options" },
+		{ title: "Account" }
+	],
+	hairTypes: [
+		{
+			image: {
+				sizes: {
+					large: "https://unsplash.it/600/300"
+				}
+			},
+			label: "Pick me",
+			value: "pickme"
+		},
+		{
+			image: {
+				sizes: {
+					large: "https://unsplash.it/600/300?random=2"
+				}
+			},
+			label: "Or me",
+			value: "orme"
+		},
+		{
+			image: {
+				sizes: {
+					large: "https://unsplash.it/600/300?random=4"
+				}
+			},
+			label: "Maybe me",
+			value: "maybeme"
+		}
+	]
+} %}
+
+{% block content %}
+    <main id="content" class="content-container">
+		<tj-order-form>
+			<form class="order-form | block-area" action="#" method="post">
+				<input type="hidden" name="step" value="{{ state.currentStep }}">
+
+				<header class="alignwide | flow flow-space-6 mt-12">
+					<h1 class="align-center">Place an Order</h1>
+					{{ stepper({ items: state.steps }) }}
+				</header>
+
+				<section class="flow flow-space-8 | align-center">
+					<label class="size-xl weight-normal" for="hair-type">Select which hair types you'd like</label>
+					{{ imageSelect({ id: "hair-type", items: state.hairTypes }) }}
+				</section>
+
+				<footer class="flex items-center justify-center">
+					<button class="button" type="submit">Continue</button>
+				</footer>
+			</form>
+		</tj-order-form>
+    </main>
+{% endblock %}

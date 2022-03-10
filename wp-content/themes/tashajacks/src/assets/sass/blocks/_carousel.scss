@@ -1,25 +1,45 @@
-.block-carousel > .carousel {
-	--carousel-height: min(80vw, 36rem);
+.carousel {
+	position: relative;
+}
 
-	&__slide {
-		background-image: var(--slide-image);
-		background-size: cover;
-		background-position: center;
-		display: grid;
-		height: var(--carousel-height);
+.carousel__controls {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	.button,
+	.button:hover {
+		--button-border: none;
+		--button-background-color: #{rgba(black, 0.6)};
+		--button-padding: var(--space-8) var(--space-1);
 	}
 
-	&__overlay {
-		background-color: rgba(black, 0.3);
-		color: var(--color-white);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: var(--space-8);
+	.button:focus {
+		--button-border: var(--color-accent);
 	}
+}
 
-	&__overlay-inner {
-		max-width: 72ch;
-		text-align: center;
-	}
+.scooch {
+	--scooch-slide-transition-time: 1s;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr;
+	list-style: none;
+}
+
+/* We need pointer events set to none for swipe, but we don't want to break clickable elements */
+/* .scooch *:not(a, button, input[type='button'], input[type='submit']) {
+	pointer-events: none;
+} */
+
+.scooch .scooch__slide {
+	grid-column: 1;
+	grid-row: 1;
+	opacity: 0;
+	transition: opacity var(--scooch-slide-transition-time, 1s);
+}
+
+.scooch .scooch__slide[aria-current] {
+	opacity: 1;
 }

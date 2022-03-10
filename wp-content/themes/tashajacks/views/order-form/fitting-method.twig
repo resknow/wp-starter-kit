@@ -1,0 +1,74 @@
+{% extends "layouts/default.twig" %}
+
+{% from "macros/order-form/stepper.twig" import stepper %}
+{% from "macros/order-form/button-select.twig" import buttonSelect %}
+
+{% set state = {
+	currentStep: "fitting-method",
+	steps: [
+		{ title: "Type", isComplete: true },
+		{ title: "Length", isComplete: true },
+		{ title: "Colour", isComplete: true },
+		{ title: "Fitting Method", isActive: true },
+		{ title: "Options" },
+		{ title: "Account" }
+	],
+} %}
+
+{% block content %}
+    <main id="content" class="content-container">
+		<tj-order-form>
+			<form class="order-form | block-area" action="#" method="post">
+				<input type="hidden" name="step" value="{{ state.currentStep }}">
+
+				<header class="alignwide | flow flow-space-6 mt-12">
+					<h1 class="align-center">Place an Order</h1>
+					{{ stepper({ items: state.steps }) }}
+				</header>
+
+                <section class="alignwide | split-section">
+                    <div class="flow py-8">
+                        <label>Select your preferred fitting method</label>
+                        {{ buttonSelect({
+                            items: [
+                                {
+                                    label: "Loose Hair",
+                                    value: "Loose Hair"
+                                },
+                                {
+                                    label: "Pre Bonds",
+                                    value: "Pre Bonds"
+                                },
+                                {
+                                    label: "Microbonds",
+                                    value: "Microbonds"
+                                },
+                                {
+                                    label: "Hand Tied Weft",
+                                    value: "Hand Tied Weft"
+                                },
+                                {
+                                    label: "Machine Made Weft",
+                                    value: "Machine Made Weft"
+                                },
+                                {
+                                    label: "Tape Weft",
+                                    value: "Tape Weft"
+                                }
+                            ]
+                        }) }}
+                    </div>
+					<div class="split-section__divider"></div>
+                    <div class="flow py-8">
+                        <label>Order Notes</label>
+                        <textarea id="order-notes" name="order-notes" placeholder="Order notes, special instructions etc."></textarea>
+					</div>
+                </section>
+
+				<footer class="flex items-center justify-center">
+					<button class="button" type="submit">Continue</button>
+				</footer>
+			</form>
+		</tj-order-form>
+    </main>
+{% endblock %}
